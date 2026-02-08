@@ -1,0 +1,102 @@
+.kanban-board-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.kanban-board {
+  min-width: 900px;
+}
+
+.kanban-column {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.kanban-column-header {
+  border-radius: 8px 8px 0 0;
+}
+
+.kanban-column-body {
+  flex: 1;
+  min-height: 200px;
+  padding: 8px;
+}
+
+.kanban-card {
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid #e9ecef;
+  position: relative;
+}
+
+.kanban-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+}
+
+.kanban-card-drag-over {
+  border-top: 3px solid #3498db !important;
+  margin-top: -1px;
+}
+
+.kanban-card-title {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.4;
+}
+
+.kanban-delete-btn {
+  border: none;
+  background: none;
+  padding: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.kanban-card:hover .kanban-delete-btn {
+  opacity: 1;
+}
+
+.kanban-delete-btn:hover {
+  background-color: #ffeaea;
+}
+
+.kanban-add-btn {
+  border: 1px dashed #bdc3c7;
+  background: none;
+  transition: background-color 0.15s;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.kanban-add-btn:hover {
+  background-color: #dfe6e9;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (max-width: 768px) {
+  .kanban-board {
+    flex-direction: column !important;
+    min-width: auto;
+    gap: 16px !important;
+  }
+
+  .kanban-column {
+    max-width: 100%;
+    min-width: auto;
+  }
+}
